@@ -1,22 +1,13 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
-import Board from './Board';
+import Board from './../containers/Board';
+import { getTitle } from './../utils';
 
 const Boards = ({ boards }) => (
     <Grid>
         <Row>
             {
-                boards.map(board => {
-                    const { _id, class_name, title } = board;
-                    return (
-                        <Board
-                            key={ _id }
-                            _id={ _id }
-                            class_name={ class_name }
-                            title={ title }
-                        />
-                    );
-                })
+                boards.map(board => <Board key={ board } id={ board } title={ getTitle(board) } />)
             }
         </Row>
     </Grid>

@@ -2,7 +2,7 @@ import { boards } from './../constants';
 
 const initialState = { boards, notes: [] };
 
-export const reducers = (state = initialState, { type, _id, e }) => {
+export const reducers = (state = initialState, { type, e, _id, id }) => {
     const { notes } = state;
     switch (type) {
         case 'ADD':
@@ -33,33 +33,19 @@ export const reducers = (state = initialState, { type, _id, e }) => {
             const _idDelete = notes.find(note => note._id === _id)._id;
             if (!_idDelete) return state;
             return { ...state, notes: notes.filter(note => note._id !== _id) };
-        case 'PREVIOUS':
-            const _idPrevious = notes.find(note => note._id === _id)._id;
-            if (!_idPrevious) return state;
+        case 'ON_DRAG_START':
+            e.dataTransfer.clearData();
+            e.dataTransfer.setData('data', `card-${ _id }`);
+            return { ...state };
+        case 'ON_DRAG_OVER':
+            e.preventDefault();
+            return { ...state };
+        case 'ON_DROP':
+            const idDnD = Number(e.dataTransfer.getData('data').split('card-')[1]);
+            const typeDnD = document.getElementById(`container-${ id }`).id.split('container-')[1];
             return {
                 ...state,
-                notes: notes.map(note => note._id !== _id ? note : {
-                    ...note,
-                    type: (
-                        note.type === 'to-do' ? 'ideas' :
-                        note.type === 'in-progress' ? 'to-do' :
-                        'in-progress'
-                    )
-                })
-            };
-        case 'NEXT':
-            const _idNext = notes.find(note => note._id === _id)._id;
-            if (!_idNext) return state;
-            return {
-                ...state,
-                notes: notes.map(note => note._id !== _id ? note : {
-                    ...note,
-                    type: (
-                        note.type === 'ideas' ? 'to-do' :
-                        note.type === 'to-do' ? 'in-progress' :
-                        'done'
-                    )
-                })
+                notes: notes.map(note => note._id !== idDnD ? note : { ...note, type: typeDnD })
             };
         default:
             return state;

@@ -4,7 +4,7 @@ import { store } from './store';
 import Header from './components/Header';
 import Boards from './containers/Boards';
 import Footer from './components/Footer';
-import './assets/css/styles.css';
+import './assets/css/index.css';
 
 const App = () => (
 	<Provider store={ store }>

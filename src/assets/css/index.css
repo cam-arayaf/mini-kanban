@@ -35,26 +35,26 @@ h3 {
 	}
 }
 
-.ideas, .to-do, .in-progress, .done {
+.board {
 	padding: 0;
 	box-shadow: 10px 10px 100px -10px rgba(0, 0, 0, 0.75);
 	border:3px solid #E8E8E8;
 	margin-bottom: 20px;
 }
 
-.ideas {
+#ideas {
   	background-color: #d6f8b8;
 }
 
-.to-do {
+#to-do {
 	background-color: #acdeaa;
 }
 
-.in-progress {
+#in-progress {
 	background-color: #8fbbaf;
 }
 
-.done {
+#done {
 	background-color: #6b7b8e;
 }
 
