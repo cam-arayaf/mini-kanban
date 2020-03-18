@@ -1,4 +1,5 @@
 export const actions = {
+    GET_NOTES: 'GET_NOTES',
     ON_DRAG_OVER: 'ON_DRAG_OVER',
     ON_DROP: 'ON_DROP',
     ADD: 'ADD',

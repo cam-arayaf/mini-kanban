@@ -40,9 +40,11 @@ export const reducer = (state, { type, payload = initialPayload }) => {
             e.dataTransfer.setData('data', `card-${ _id }`);
             return { ...state };
         case ON_DRAG_OVER:
+            e.persist();
             e.preventDefault();
             return { ...state };
         case ON_DROP:
+            e.persist();
             const idDnD = Number(e.dataTransfer.getData('data').split('card-')[1]);
             const typeDnD = document.getElementById(`container-${ id }`).id.split('container-')[1];
             return {
