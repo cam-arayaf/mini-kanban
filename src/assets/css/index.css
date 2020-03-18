@@ -2,6 +2,10 @@ html, body {
 	height: 100%;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	background-color: #e2eff1;
@@ -12,14 +16,13 @@ body {
 
 #root {
 	padding-bottom: 50px;
-    min-height: calc(100% - 50px);
+    min-height: calc(100% - 50.5px);
     position: relative;
 }
 
 header {
 	background-color: #3e4377 !important;
 	align-items: center;
-	margin-bottom: 20px;
 }
 
 h3 {
@@ -35,8 +38,12 @@ h3 {
 	}
 }
 
+.root {
+    margin: 1vw;
+}
+
 .board {
-	padding: 0;
+	padding: 0 !important;
 	box-shadow: 10px 10px 100px -10px rgba(0, 0, 0, 0.75);
 	border:3px solid #E8E8E8;
 	margin-bottom: 20px;
@@ -59,7 +66,7 @@ h3 {
 }
 
 .MuiContainer-root {
-	height: 417px;
+	height: 394px;
 	overflow-y: auto;
 }
 
@@ -77,9 +84,8 @@ h3 {
 	width: 100%;
 }
 
-.MuiIconButton-sizeSmall {
-	width: 0;
-	background: none !important;
+.MuiCardActions-root {
+	display: block !important;
 }
 
 footer {

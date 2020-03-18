@@ -1,10 +1,10 @@
 import React from 'react';
-import { Col } from 'react-flexbox-grid';
+import Grid from '@material-ui/core/Grid';
 import { Container } from '@material-ui/core';
 import Notes from './../containers/Notes';
 
 const Board = ({ id, title, onDragOver, onDrop }) => (
-    <Col xs={ 12 } sm={ 6 } md={ 3 } id={ id } className="board">
+    <Grid item xs={ 12 } sm={ 6 } md={ 3 } id={ id } className="board">
         <h3>{ title }</h3>
         <Container
             maxWidth="sm"
@@ -14,7 +14,7 @@ const Board = ({ id, title, onDragOver, onDrop }) => (
         >
             <Notes id={ id } />
         </Container>
-    </Col>
+    </Grid>
 );
 
 Board.displayName = "Board";

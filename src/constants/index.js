@@ -1,1 +1,0 @@
-export const boards = ['ideas', 'to-do', 'in-progress', 'done'];
